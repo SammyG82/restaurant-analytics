@@ -14,7 +14,7 @@ The restaurant industry is one of the most competitive and dynamic sectors in th
 
 This project uses three distinct CSV datasets, each offering a different lens on the U.S. restaurant landscape.
 
-#### Top 250 Chains (`Top250.csv`)
+#### Top 250 Restaurant Chains (`Top250.csv`)
 The 250 largest restaurant chains in the US by 2020 annual sales, sorted in decreasing order. Sales are reported in millions of dollars.
 
 | Column               | Description                                                                 |

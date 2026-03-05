@@ -243,12 +243,12 @@
       <div class="accent-bar"></div>
       <p class="q-num">Finding · State Analysis</p>
       <h3>State-level proportion of 4-star+ independent restaurants</h3>
-      <p>By merging Yelp ratings with sales data and grouping by state, we computed the proportion of top independent restaurants with at least 4 stars per state. This revealed significant geographic variation in perceived dining quality, independent of raw sales figures — pointing to regional differences in diner expectations and culinary culture.</p>
+      <p>By merging Yelp ratings with sales data and grouping by state, we computed the proportion of top independent restaurants with at least 4 stars per state across 20 states. This revealed significant geographic variation — Texas had the lowest proportion at just 33%, while D.C., Louisiana, Indiana, and Virginia each achieved a perfect 100%.</p>
+      <div class="stat-highlight">Texas: 33% · New York: 60% · D.C. / Louisiana / Virginia: 100%</div>
     </div>
-    <div class="chart-wrap reveal reveal-delay-1">
+    <div class="chart-wrap reveal reveal-delay-1" style="display:flex;flex-direction:column;">
       <p class="chart-label">Chart — Rating vs. Average Check</p>
-      <canvas id="ratingChart" height="220"></canvas>
-      <p class="chart-caption">Median average check per person by Yelp star rating · Independents 100</p>
+      <canvas id="ratingChart" style="flex:1;min-height:0;"></canvas>
     </div>
   </div>
 </section>
