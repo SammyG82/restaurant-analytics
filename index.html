@@ -122,11 +122,7 @@
       <p class="q-num">Finding 03 · Investment Targets</p>
       <h3>Three segment categories stand out as top investment opportunities</h3>
       <p>Ranking all 20 segment categories by mean growth category score revealed clear frontrunners. Chains in these three segments demonstrated the strongest momentum heading into the post-pandemic recovery, making them the most attractive for capital allocation.</p>
-      <ul class="ranked-list">
-        <li><span class="rank-num">1</span> Quick Service & Chicken <div class="bar-wrap"><div class="bar-fill" style="width:94%"></div></div></li>
-        <li><span class="rank-num">2</span> Quick Service & Pizza <div class="bar-wrap"><div class="bar-fill" style="width:82%"></div></div></li>
-        <li><span class="rank-num">3</span> Quick Service & Mexican <div class="bar-wrap"><div class="bar-fill" style="width:76%"></div></div></li>
-      </ul>
+      <div class="stat-highlight">#1 QS & Chicken · #2 QS & Pizza · #3 QS & Mexican</div>
     </div>
 
     <div class="finding-card gold reveal reveal-delay-2">
@@ -242,11 +238,18 @@
     </div>
   </div>
 
-  <div class="finding-card reveal" style="margin-top:2rem;max-width:680px;">
-    <div class="accent-bar"></div>
-    <p class="q-num">Finding · State Analysis</p>
-    <h3>State-level proportion of 4-star+ independent restaurants</h3>
-    <p>By merging Yelp ratings with sales data and grouping by state, we computed the proportion of top independent restaurants with at least 4 stars per state. This revealed significant geographic variation in perceived dining quality, independent of raw sales figures — pointing to regional differences in diner expectations and culinary culture.</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2rem;align-items:stretch;">
+    <div class="finding-card reveal">
+      <div class="accent-bar"></div>
+      <p class="q-num">Finding · State Analysis</p>
+      <h3>State-level proportion of 4-star+ independent restaurants</h3>
+      <p>By merging Yelp ratings with sales data and grouping by state, we computed the proportion of top independent restaurants with at least 4 stars per state. This revealed significant geographic variation in perceived dining quality, independent of raw sales figures — pointing to regional differences in diner expectations and culinary culture.</p>
+    </div>
+    <div class="chart-wrap reveal reveal-delay-1">
+      <p class="chart-label">Chart — Rating vs. Average Check</p>
+      <canvas id="ratingChart" height="220"></canvas>
+      <p class="chart-caption">Median average check per person by Yelp star rating · Independents 100</p>
+    </div>
   </div>
 </section>
 
@@ -291,10 +294,10 @@
 <footer>
   <div class="footer-brand">Restaurant Analytics · DSC 10</div>
   <p>Data from Restaurant Business Online (2022) · Yelp (Jan 2023) · UC San Diego</p>
-  <p>Sam Griffiths · sgriffiths@ucsd.edu</p>
+  <p>Sam Griffiths · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="daa9bda8b3bcbcb3aeb2a99aafb9a9bef4bfbeaf">[email&#160;protected]</a></p>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <script>
   // ── THEME ──
   const AMBER = '#c8871a', BROWN = '#3d2b1f', SAGE = '#5a7a5e',
@@ -434,7 +437,48 @@
     }
   });
 
-  // ── REVEAL ANIMATIONS ──
+  // ── CHART 4: RATING VS AVERAGE CHECK ──
+  new Chart(document.getElementById('ratingChart'), {
+    type: 'bar',
+    data: {
+      labels: ['3.0 ★', '3.5 ★', '4.0 ★', '4.5 ★', '5.0 ★'],
+      datasets: [{
+        label: 'Median Avg Check ($)',
+        data: [87, 78, 92, 93, 155],
+        backgroundColor: [
+          'rgba(200,135,26,0.4)',
+          'rgba(200,135,26,0.5)',
+          'rgba(200,135,26,0.65)',
+          'rgba(200,135,26,0.8)',
+          '#c8871a'
+        ],
+        borderRadius: 6,
+        borderSkipped: false,
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: BROWN, titleColor: GOLD, bodyColor: '#f5f0e8', padding: 10,
+          callbacks: { label: ctx => ` Median check: $${ctx.raw}` }
+        }
+      },
+      scales: {
+        x: {
+          grid: { display: false },
+          border: { display: false },
+          ticks: { color: BROWN, font: { size: 12, weight: '500' } }
+        },
+        y: {
+          grid: { color: 'rgba(61,43,31,0.06)' },
+          border: { display: false },
+          ticks: { color: WARM, font: { size: 11 }, callback: v => '$' + v }
+        }
+      }
+    }
+  });
   const revealEls = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => {
