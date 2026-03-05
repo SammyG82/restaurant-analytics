@@ -103,17 +103,7 @@
     text-transform: uppercase; letter-spacing: 0.1em;
   }
   .hero-divider { width: 1px; background: rgba(61,43,31,0.15); }
-  .scroll-hint {
-    position: absolute; bottom: 3rem; left: 50%; transform: translateX(-50%);
-    display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
-    font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--warm-gray); animation: bob 2s ease-in-out infinite;
-  }
-  .scroll-hint::after {
-    content: ''; display: block; width: 1px; height: 40px;
-    background: linear-gradient(to bottom, var(--amber), transparent);
-    margin-top: 0.4rem;
-  }
+
 
   /* ── SECTION SHELL ── */
   section { padding: 6rem 4rem; }
@@ -408,7 +398,7 @@
       </div>
     </div>
   </div>
-  <div class="scroll-hint">Scroll</div>
+
 </section>
 
 <!-- OVERVIEW -->
@@ -628,10 +618,10 @@
 <footer>
   <div class="footer-brand">Restaurant Analytics · DSC 10</div>
   <p>Data from Restaurant Business Online (2022) · Yelp (Jan 2023) · UC San Diego</p>
-  <p>Sam Griffiths · sgriffiths@ucsd.edu</p>
+  <p>Sam Griffiths · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="394a5e4b505f5f504d514a794c5a4a5d175c5d4c">[email&#160;protected]</a></p>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // Intersection Observer for reveal animations
   const revealEls = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver((entries) => {
