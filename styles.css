@@ -605,6 +605,15 @@ footer p {
   color: var(--gold);
 }
 
+.text-match {
+  color: inherit;
+  text-decoration: none;
+}
+
+.text-match:hover {
+  color: var(--amber);
+}
+
 /* ── ANIMATIONS ── */
 @keyframes fadeUp {
   from {
@@ -667,12 +676,4 @@ footer p {
   .skills-columns {
     grid-template-columns: 1fr;
   }
-}
-.text-match {
-  color: inherit;
-  text-decoration: none;
-}
-
-.text-match:hover {
-  color: var(--amber);
 }
