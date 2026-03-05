@@ -215,6 +215,6 @@ This project was completed entirely without Python loops, leveraging vectorized 
 ---
 
 ## Website
-An interactive data visualization site summarizing the project findings is live at:
+A data visualization site summarizing the project findings is live at:
 
 **[sammyg82.github.io/restaurant-analytics](https://sammyg82.github.io/restaurant-analytics)**
