@@ -6,6 +6,31 @@
 <title>Restaurant Industry Analytics — DSC 10 Project</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<style>
+  .hero {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 6rem 4rem 3rem !important;
+  }
+  .hero-content { display: flex; flex-direction: column; justify-content: center; }
+  .hero-geo {
+    position: relative;
+    height: 100%;
+    min-height: 400px;
+    overflow: hidden;
+  }
+  .hero-geo svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr !important; }
+    .hero-geo { display: none; }
+  }
+</style>
 </head>
 <body>
 
@@ -23,7 +48,7 @@
 
 <!-- HERO -->
 <section class="hero" id="home">
-  <div>
+  <div class="hero-content">
     <span class="hero-tag">DSC 10 · Midterm Project · UCSD</span>
     <h1>Restaurant<br><em>Industry</em><br>Analytics</h1>
     <p class="hero-sub">
@@ -43,15 +68,37 @@
       </div>
       <div class="hero-divider"></div>
       <div class="hero-stat">
-        <span class="num">2021</span>
-        <span class="label">Sales Data Year</span>
-      </div>
-      <div class="hero-divider"></div>
-      <div class="hero-stat">
-        <span class="num">$40.5B</span>
-        <span class="label">McDonald's Sales</span>
+        <span class="num">$2,100M+</span>
+        <span class="label">Quick Service Sales Advantage</span>
       </div>
     </div>
+  </div>
+
+  <div class="hero-geo" aria-hidden="true">
+    <svg viewBox="0 0 500 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+      <line x1="0" y1="100" x2="500" y2="100" stroke="rgba(200,135,26,0.1)" stroke-width="1"/>
+      <line x1="0" y1="200" x2="500" y2="200" stroke="rgba(200,135,26,0.1)" stroke-width="1"/>
+      <line x1="0" y1="300" x2="500" y2="300" stroke="rgba(200,135,26,0.1)" stroke-width="1"/>
+      <line x1="0" y1="400" x2="500" y2="400" stroke="rgba(200,135,26,0.1)" stroke-width="1"/>
+      <line x1="0" y1="500" x2="500" y2="500" stroke="rgba(200,135,26,0.1)" stroke-width="1"/>
+      <line x1="100" y1="0" x2="100" y2="600" stroke="rgba(200,135,26,0.07)" stroke-width="1"/>
+      <line x1="200" y1="0" x2="200" y2="600" stroke="rgba(200,135,26,0.07)" stroke-width="1"/>
+      <line x1="300" y1="0" x2="300" y2="600" stroke="rgba(200,135,26,0.07)" stroke-width="1"/>
+      <line x1="400" y1="0" x2="400" y2="600" stroke="rgba(200,135,26,0.07)" stroke-width="1"/>
+      <circle cx="320" cy="280" r="180" fill="none" stroke="rgba(200,135,26,0.13)" stroke-width="1.5"/>
+      <circle cx="320" cy="280" r="120" fill="none" stroke="rgba(200,135,26,0.09)" stroke-width="1"/>
+      <circle cx="320" cy="280" r="60" fill="rgba(200,135,26,0.04)" stroke="rgba(200,135,26,0.16)" stroke-width="1"/>
+      <line x1="80" y1="0" x2="500" y2="380" stroke="rgba(200,135,26,0.07)" stroke-width="1"/>
+      <line x1="0" y1="120" x2="420" y2="600" stroke="rgba(200,135,26,0.05)" stroke-width="1"/>
+      <rect x="430" y="30" width="32" height="32" fill="none" stroke="rgba(200,135,26,0.18)" stroke-width="1.5"/>
+      <rect x="20" y="540" width="22" height="22" fill="rgba(200,135,26,0.06)" stroke="rgba(200,135,26,0.16)" stroke-width="1"/>
+      <circle cx="180" cy="400" r="3.5" fill="rgba(200,135,26,0.35)"/>
+      <circle cx="230" cy="348" r="4.5" fill="rgba(200,135,26,0.45)"/>
+      <circle cx="288" cy="295" r="3.5" fill="rgba(200,135,26,0.38)"/>
+      <circle cx="355" cy="238" r="5" fill="rgba(200,135,26,0.6)"/>
+      <circle cx="415" cy="178" r="6" fill="#c8871a" opacity="0.7"/>
+      <polyline points="180,400 230,348 288,295 355,238 415,178" fill="none" stroke="rgba(200,135,26,0.22)" stroke-width="1.5" stroke-dasharray="5,4"/>
+    </svg>
   </div>
 
 </section>
@@ -246,7 +293,7 @@
       <p>By merging Yelp ratings with sales data and grouping by state, we computed the proportion of top independent restaurants with at least 4 stars per state across 20 states. This revealed significant geographic variation — Texas had the lowest proportion at just 33%, while D.C., Louisiana, Indiana, and Virginia each achieved a perfect 100%.</p>
       <div class="stat-highlight">Texas: 33% · New York: 60% · D.C. / Louisiana / Virginia: 100%</div>
     </div>
-    <div class="chart-wrap reveal reveal-delay-1" style="display:flex;flex-direction:column;">
+    <div class="chart-wrap reveal reveal-delay-1" style="display:flex;flex-direction:column;padding-bottom:0.8rem;">
       <p class="chart-label">Chart — Rating vs. Average Check</p>
       <canvas id="ratingChart" style="flex:1;min-height:0;"></canvas>
     </div>

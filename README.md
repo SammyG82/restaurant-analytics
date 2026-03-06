@@ -12,7 +12,7 @@ The restaurant industry is one of the most competitive and dynamic sectors in th
 
 ## The Data
 
-This project uses three distinct CSV datasets, each offering a different lens on the U.S. restaurant landscape.
+This project uses 4 distinct CSV datasets, each offering a different lens on the U.S. restaurant landscape.
 
 #### Top 250 Restaurant Chains (`Top250.csv`)
 The 250 largest restaurant chains in the US by 2020 annual sales, sorted in decreasing order. Sales are reported in millions of dollars.
@@ -200,7 +200,7 @@ This project was completed entirely without Python loops, leveraging vectorized 
 
 | Technique                  | Application                                                                 |
 |----------------------------|-----------------------------------------------------------------------------|
-| ETL Pipeline               | Loading, trimming, and restructuring three source datasets                 |
+| ETL Pipeline               | Loading, trimming, and restructuring four source datasets                  |
 | String Parsing             | Converting `YOY_Sales` percentage strings to numerical proportions         |
 | Feature Engineering        | Back-calculating `Sales_2019`; creating `Growth_Category` classifier       |
 | `.apply()` & lambda        | Applying custom functions element-wise without loops                       |
