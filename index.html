@@ -4,40 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Restaurant Industry Analytics — DSC 10 Project</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./styles/styles.css">
-<style>
-  .hero {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    padding: 6rem 4rem 3rem !important;
-  }
-  .hero-content { display: flex; flex-direction: column; justify-content: center; }
-  .hero-geo {
-    position: relative;
-    height: 100%;
-    min-height: 400px;
-    overflow: hidden;
-  }
-  .hero-geo svg {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-  }
-  @media (max-width: 900px) {
-    .hero { grid-template-columns: 1fr !important; }
-    .hero-geo { display: none; }
-  }
-</style>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 
 <!-- NAV -->
-<nav>
+<nav aria-label="Site navigation">
   <div class="nav-brand">Restaurant Analytics</div>
-  <ul class="nav-links">
+  <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="nav-links">
     <li><a href="#overview">Overview</a></li>
     <li><a href="#chains">Chains</a></li>
     <li><a href="#cities">Cities</a></li>
@@ -46,6 +25,7 @@
   </ul>
 </nav>
 
+<main id="main-content" tabindex="-1">
 <!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-content">
@@ -58,17 +38,17 @@
     </p>
     <div class="hero-meta">
       <div class="hero-stat">
-        <span class="num">400+</span>
+        <span class="num">400</span>
         <span class="label">Restaurants Analyzed</span>
       </div>
       <div class="hero-divider"></div>
       <div class="hero-stat">
-        <span class="num">3</span>
+        <span class="num">4</span>
         <span class="label">Unique Datasets</span>
       </div>
       <div class="hero-divider"></div>
       <div class="hero-stat">
-        <span class="num">$2,100M+</span>
+        <span class="num">$1,700M+</span>
         <span class="label">Quick Service Sales Advantage</span>
       </div>
     </div>
@@ -107,30 +87,37 @@
 <section id="overview">
   <div class="reveal">
     <p class="section-label">The Data</p>
-    <h2 class="section-title">Three lenses on the American food industry</h2>
+    <h2 class="section-title">Four lenses on the American food industry</h2>
     <p class="section-intro">
-      Data sourced from Restaurant Business Online (2022), covering fiscal year 2021. Each dataset
-      offers a distinct perspective — from giant chains to scrappy independents to tomorrow's breakouts.
+      Data sourced from Restaurant Business Online (2022) and Yelp (January 2023). Chain data covers
+      fiscal year 2020; city and ratings data cover fiscal year 2021. Each dataset offers a distinct
+      perspective on the U.S. restaurant landscape.
     </p>
   </div>
   <div class="datasets-grid">
     <div class="dataset-card reveal reveal-delay-1">
-      <div class="icon">⛓️</div>
+      <div class="icon" aria-hidden="true">⛓️</div>
       <h3>Top 250 Chains</h3>
       <p>The 250 largest restaurant chains in the US by 2020 annual sales, ranging from McDonald's at $40.5 billion down to Sizzler. Includes year-over-year growth rates and segment categories.</p>
       <span class="badge">250 chains · Sales in $M</span>
     </div>
     <div class="dataset-card reveal reveal-delay-2">
-      <div class="icon">🚀</div>
+      <div class="icon" aria-hidden="true">🚀</div>
       <h3>Future 50</h3>
       <p>The 50 fastest-growing mid-sized restaurant chains with annual sales between $25–50M. These are the household names of tomorrow, not yet in the same league as McDonald's.</p>
       <span class="badge">50 chains · $25–50M range</span>
     </div>
     <div class="dataset-card reveal reveal-delay-3">
-      <div class="icon">🍽️</div>
+      <div class="icon" aria-hidden="true">🍽️</div>
       <h3>Independents 100</h3>
       <p>The 100 highest-grossing independent restaurants (fewer than 5 locations) in the US. These are destination dining experiences — measured in dollars, not millions.</p>
       <span class="badge">100 restaurants · Sales in $</span>
+    </div>
+    <div class="dataset-card reveal reveal-delay-4">
+      <div class="icon" aria-hidden="true">⭐</div>
+      <h3>Yelp Ratings</h3>
+      <p>Yelp ratings collected in January 2023 for the 100 restaurants in the Independents 100. Used to explore the relationship between price, sales volume, and customer satisfaction.</p>
+      <span class="badge">100 restaurants · 3.0–4.5 stars</span>
     </div>
   </div>
 </section>
@@ -146,29 +133,29 @@
     </p>
   </div>
 
-  <div class="findings-grid" style="margin-top: 3.5rem;">
+  <div class="findings-grid">
 
     <div class="finding-card reveal reveal-delay-1">
       <div class="accent-bar"></div>
       <p class="q-num">Finding 01 · Segment Analysis</p>
       <h3>Quick Service chains outpace all other categories by a wide margin</h3>
-      <p>After aggregating mean sales across all 20+ segment categories, Quick Service & Burger, Quick Service & Mexican, and Quick Service & Coffee Cafe claimed the top three spots — each averaging over $3 billion in annual sales. The gap between Quick Service and non-Quick Service restaurants was quantified at over $2,100M in average sales.</p>
-      <div class="stat-highlight">Quick Service avg sales premium: <strong>$2,100M+</strong> over non-QS chains</div>
+      <p>After aggregating mean sales across all 20+ segment categories, Quick Service & Burger, Quick Service & Mexican, and Quick Service & Coffee Cafe claimed the top three spots — each averaging over $3 billion in annual sales. The gap between Quick Service and non-Quick Service restaurants was quantified at over $1,700M in average sales.</p>
+      <div class="stat-highlight">Quick Service avg sales premium: <strong>$1,700M+</strong> over non-QS chains</div>
     </div>
 
     <div class="finding-card rust reveal reveal-delay-2">
       <div class="accent-bar"></div>
       <p class="q-num">Finding 02 · Growth Classification</p>
-      <h3>Only 12% of top chains achieved "Rapid Growth" in the pandemic year</h3>
-      <p>A custom 5-tier growth classification system was engineered using year-over-year sales data — converting percentage strings to numerical proportions and applying categorical thresholds. Category 5 (rapid increase, ≥10% YOY) captured just 12% of chains, led by chicken and delivery-friendly concepts.</p>
-      <div class="stat-highlight">Category 1 (rapid decline) was the rarest — many giants held steady</div>
+      <h3>Only ~9% of top chains achieved "Rapid Growth" in the pandemic year</h3>
+      <p>A custom 5-tier growth classification system was engineered using year-over-year sales data — converting percentage strings to numerical proportions and applying categorical thresholds. Category 5 (rapid increase, ≥10% YOY) captured just ~9% of chains, led by chicken and delivery-friendly concepts. Reflecting COVID-19's impact, Growth Category 1 (rapid decline) was the most common — capturing 60% of chains.</p>
+      <div class="stat-highlight">~60% of chains saw rapid decline (Cat 1) · only ~9% achieved rapid growth (Cat 5)</div>
     </div>
 
     <div class="finding-card sage reveal reveal-delay-1">
       <div class="accent-bar"></div>
       <p class="q-num">Finding 03 · Investment Targets</p>
-      <h3>Three segment categories stand out as top investment opportunities</h3>
-      <p>Ranking all 20 segment categories by mean growth category score revealed clear frontrunners. Chains in these three segments demonstrated the strongest momentum heading into the post-pandemic recovery, making them the most attractive for capital allocation.</p>
+      <h3>Five segment categories lead on growth, with three clear frontrunners for investment</h3>
+      <p>Ranking all 20 segment categories by mean growth category score revealed five top-performing segments, charted below. The top three demonstrated the strongest momentum heading into the post-pandemic recovery, making them the most attractive for capital allocation.</p>
       <div class="stat-highlight">#1 QS & Chicken · #2 QS & Pizza · #3 QS & Mexican</div>
     </div>
 
@@ -181,9 +168,9 @@
     </div>
 
   </div>
-  <div class="chart-wrap reveal" style="margin-top:2.5rem;">
+  <div class="chart-wrap reveal">
     <p class="chart-label">Chart — Segment Growth Rankings (Top 5)</p>
-    <canvas id="growthChart" height="100"></canvas>
+    <canvas id="growthChart" height="100" role="img" aria-label="Bar chart: Top 5 Segment Growth Rankings" aria-describedby="growthCaption">Bar chart showing top 5 restaurant segment categories by mean growth score, ranging from 3.22 to 3.60.</canvas>
     <p class="chart-caption" id="growthCaption">Top 5 segment categories by mean growth score (1 = rapid decline → 5 = rapid increase) · Top 250 chains, 2020 data</p>
   </div>
 </section>
@@ -201,54 +188,55 @@
 
   <div class="cities-layout">
     <div class="reveal reveal-delay-1">
-      <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--brown);margin-bottom:1.2rem;">Hot Food Cities Leaderboard</h3>
-      <p style="font-size:0.85rem;color:var(--warm-gray);margin-bottom:1.5rem;">"Food hotness" = sum of appearances on Independents 100 + Future 50. Cities must appear on both lists.</p>
+      <h3 class="leaderboard-title">Hot Food Cities Leaderboard</h3>
+      <p class="leaderboard-desc">"Food hotness" = sum of appearances on Independents 100 + Future 50. Cities must appear on both lists.</p>
       <table class="city-table">
         <thead>
           <tr>
-            <th>City</th>
-            <th>Independents</th>
-            <th>Future 50</th>
-            <th>Hotness</th>
+            <th scope="col">City</th>
+            <th scope="col">Independents</th>
+            <th scope="col">Future 50</th>
+            <th scope="col">Hotness</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td><span class="heat-dot"></span>New York</td><td>20</td><td>3</td><td><span class="hot-badge">🔥 23</span></td></tr>
           <tr><td><span class="heat-dot"></span>Chicago</td><td>16</td><td>1</td><td><span class="hot-badge">🔥 17</span></td></tr>
-          <tr><td><span class="heat-dot"></span>Las Vegas</td><td>9</td><td>1</td><td><span class="hot-badge">🔥 10</span></td></tr>
-          <tr><td><span class="heat-dot"></span>Miami Beach</td><td>7</td><td>1</td><td><span class="hot-badge">🔥 8</span></td></tr>
+          <tr><td><span class="heat-dot"></span>New York</td><td>10</td><td>2</td><td><span class="hot-badge">🔥 12</span></td></tr>
+          <tr><td><span class="heat-dot"></span>Orlando</td><td>3</td><td>2</td><td><span class="hot-badge">🔥 5</span></td></tr>
           <tr><td><span class="heat-dot"></span>Atlanta</td><td>2</td><td>2</td><td><span class="hot-badge">🔥 4</span></td></tr>
+          <tr><td><span class="heat-dot"></span>Houston</td><td>2</td><td>1</td><td><span class="hot-badge">🔥 3</span></td></tr>
           <tr><td><span class="heat-dot"></span>Austin</td><td>2</td><td>1</td><td><span class="hot-badge">🔥 3</span></td></tr>
+          <tr><td><span class="heat-dot"></span>West Hollywood</td><td>1</td><td>1</td><td><span class="hot-badge">🔥 2</span></td></tr>
         </tbody>
       </table>
     </div>
 
-    <div class="reveal reveal-delay-2" style="display:flex;flex-direction:column;gap:1.2rem;">
+    <div class="insight-stack reveal reveal-delay-2">
       <div class="insight-block">
         <h3>Foodiest City Per Capita</h3>
         <p>After normalizing food hotness scores against 2021 population data, a surprising winner emerged — not New York or Chicago.</p>
-        <div class="big-stat">Las Vegas</div>
+        <div class="big-stat">West Hollywood</div>
         <p class="big-label">Highest food hotness per capita among hot cities</p>
       </div>
       <div class="insight-block">
-        <h3>Most Expensive Dining City</h3>
+        <h3>Most Expensive Dining Cities</h3>
         <p>Analyzing median average check across cities with 3+ independent restaurants reveals where diners spend most per meal.</p>
-        <div class="big-stat" style="font-size:2rem;">Las Vegas · Miami Beach</div>
-        <p class="big-label">Median checks above $129 per person</p>
+        <div class="big-stat">Las Vegas · Miami Beach · Chicago</div>
+        <p class="big-label">Top 3: $129.50 · $129.00 · $97.00 median check</p>
       </div>
     </div>
   </div>
 
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2rem;">
+  <div class="chart-pair">
     <div class="chart-wrap reveal reveal-delay-1">
       <p class="chart-label">Chart — Hot Food Cities</p>
-      <canvas id="citiesChart" height="300"></canvas>
-      <p class="chart-caption">Restaurant appearances by city across Independents 100 and Future 50 lists</p>
+      <canvas id="citiesChart" height="300" role="img" aria-label="Grouped bar chart: Hot Food Cities" aria-describedby="citiesCaption">Grouped bar chart showing restaurant appearances by city across the Independents 100 and Future 50 lists.</canvas>
+      <p class="chart-caption" id="citiesCaption">Restaurant appearances by city across Independents 100 and Future 50 lists</p>
     </div>
     <div class="chart-wrap reveal reveal-delay-2">
       <p class="chart-label">Chart — Price vs Volume</p>
-      <canvas id="scatterChart" height="300"></canvas>
-      <p class="chart-caption">Higher average check correlates with fewer meals served — pricier restaurants serve smaller crowds</p>
+      <canvas id="scatterChart" height="300" role="img" aria-label="Scatter plot: Price vs Meals Served" aria-describedby="scatterCaption">Scatter plot showing a negative correlation between average check price and meals served — higher-priced restaurants serve fewer customers.</canvas>
+      <p class="chart-caption" id="scatterCaption">Higher average check correlates with fewer meals served — pricier restaurants serve smaller crowds</p>
     </div>
   </div>
 </section>
@@ -266,36 +254,37 @@
 
   <div class="stars-grid">
     <div class="star-card reveal reveal-delay-1">
-      <div class="star-rating">⭐⭐⭐⭐⭐</div>
-      <div class="price">$155</div>
-      <div class="price-label">Median avg check · 5-star restaurants</div>
-      <p>The highest-rated independent restaurants command a significant price premium, with median checks over $150 per person. Price and prestige are strongly correlated.</p>
+      <div class="star-rating" aria-hidden="true">4.5 ★</div>
+      <div class="price">$93</div>
+      <div class="price-label">Median avg check · 4.5-star restaurants</div>
+      <p>The highest-rated independent restaurants in the dataset hold a 4.5-star Yelp rating — commanding a strong price premium with median checks near $100 per person.</p>
     </div>
     <div class="star-card reveal reveal-delay-2">
-      <div class="star-rating">⭐⭐⭐⭐</div>
-      <div class="price">$105</div>
-      <div class="price-label">Median avg check · 4-star restaurants</div>
-      <p>Four-star restaurants still represent premium dining but at a more accessible price point — capturing the sweet spot of quality and value for most fine-dining patrons.</p>
+      <div class="star-rating" aria-hidden="true">⭐⭐⭐⭐</div>
+      <div class="price">$92</div>
+      <div class="price-label">Median avg check · 4.0-star restaurants</div>
+      <p>Four-star restaurants represent premium dining at a nearly identical price point to 4.5-star restaurants — capturing the sweet spot of quality and value for most fine-dining patrons.</p>
     </div>
     <div class="star-card reveal reveal-delay-3">
-      <div class="star-rating">⭐⭐⭐</div>
-      <div class="price">$87</div>
-      <div class="price-label">Median avg check · 3-star restaurants</div>
-      <p>Interestingly, 5 restaurants received the lowest (3.0) Yelp rating despite appearing in the Independents 100 — and still averaged $87 per check. High sales ≠ high satisfaction.</p>
+      <div class="star-rating" aria-hidden="true">⭐⭐⭐</div>
+      <div class="price">$50</div>
+      <div class="price-label">Median avg check · 3.0-star restaurants</div>
+      <p>Interestingly, 5 restaurants received the lowest (3.0) Yelp rating despite appearing in the Independents 100 — with a median check of $50. High sales ≠ high satisfaction.</p>
     </div>
   </div>
 
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2rem;align-items:stretch;">
+  <div class="stars-pair">
     <div class="finding-card reveal">
       <div class="accent-bar"></div>
       <p class="q-num">Finding · State Analysis</p>
       <h3>State-level proportion of 4-star+ independent restaurants</h3>
       <p>By merging Yelp ratings with sales data and grouping by state, we computed the proportion of top independent restaurants with at least 4 stars per state across 20 states. This revealed significant geographic variation — Texas had the lowest proportion at just 33%, while D.C., Louisiana, Indiana, and Virginia each achieved a perfect 100%.</p>
-      <div class="stat-highlight">Texas: 33% · New York: 60% · D.C. / Louisiana / Virginia: 100%</div>
+      <div class="stat-highlight">Texas: 33% · New York: 60% · D.C. / Louisiana / Indiana / Virginia: 100%</div>
     </div>
-    <div class="chart-wrap reveal reveal-delay-1" style="display:flex;flex-direction:column;padding-bottom:0.8rem;">
+    <div class="chart-wrap chart-col reveal reveal-delay-1">
       <p class="chart-label">Chart — Rating vs. Average Check</p>
-      <canvas id="ratingChart" style="flex:1;min-height:0;"></canvas>
+      <canvas id="ratingChart" role="img" aria-label="Bar chart: Rating vs Average Check" style="flex:1;min-height:0;" aria-describedby="ratingCaption">Bar chart showing median average check by Yelp rating, from $50 at 3.0 stars up to $93 at 4.5 stars.</canvas>
+      <p class="chart-caption" id="ratingCaption">Median average check by Yelp rating — Independents 100, 2021 data with Yelp ratings from January 2023</p>
     </div>
   </div>
 </section>
@@ -312,14 +301,14 @@
   </div>
   <div class="skills-columns">
     <div class="skill-group reveal reveal-delay-1">
-      <h4>Languages & Libraries</h4>
+      <h3>Languages & Libraries</h3>
       <span class="skill-pill">Python</span>
       <span class="skill-pill">babypandas</span>
       <span class="skill-pill">NumPy</span>
       <span class="skill-pill">Matplotlib</span>
     </div>
     <div class="skill-group reveal reveal-delay-2">
-      <h4>Data Engineering</h4>
+      <h3>Data Engineering</h3>
       <span class="skill-pill">ETL Pipelines</span>
       <span class="skill-pill">Multi-key Joins</span>
       <span class="skill-pill">String Parsing</span>
@@ -327,7 +316,7 @@
       <span class="skill-pill">Aggregation</span>
     </div>
     <div class="skill-group reveal reveal-delay-3">
-      <h4>Analysis Techniques</h4>
+      <h3>Analysis Techniques</h3>
       <span class="skill-pill">GroupBy Aggregation</span>
       <span class="skill-pill">Custom Classification</span>
       <span class="skill-pill">Per-Capita Normalization</span>
@@ -337,6 +326,8 @@
   </div>
 </section>
 
+</main>
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-brand">Restaurant Analytics · DSC 10</div>
@@ -344,7 +335,7 @@
 <p>Sam Griffiths · <a href="mailto:sgriffiths@ucsd.edu" class="text-match">sgriffiths@ucsd.edu</a></p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <script>
   // ── THEME ──
   const AMBER = '#c8871a', BROWN = '#3d2b1f', SAGE = '#5a7a5e',
@@ -358,8 +349,8 @@
     type: 'bar',
     data: {
       labels: ['Quick Service & Burger','Fast Casual & Chicken','Quick Service & Mexican','Quick Service & Pizza','Quick Service & Chicken'],
-      datasets: [{ label: 'Mean Growth Category', data: [3.22, 3.35, 3.38, 3.5, 3.6],
-        backgroundColor: (ctx) => { const v = ctx.raw; if (v >= 3.2) return AMBER; if (v >= 2.4) return '#b8751a'; return '#8a6040'; },
+      datasets: [{ label: 'Mean Growth Category', data: [3.22, 3.33, 3.33, 3.47, 3.60],
+        backgroundColor: AMBER,
         borderRadius: 4, borderSkipped: false }]
     },
     options: {
@@ -427,19 +418,26 @@
 
   // ── CHART 3: SCATTER (avg check vs meals served) ──
   const scatterData = [
-    {x:18,y:970000},{x:22,y:910000},{x:25,y:925000},{x:28,y:830000},{x:30,y:750000},
-    {x:35,y:640000},{x:38,y:590000},{x:40,y:550000},{x:42,y:480000},{x:45,y:510000},
-    {x:48,y:460000},{x:50,y:440000},{x:50,y:420000},{x:55,y:400000},{x:55,y:390000},
-    {x:58,y:350000},{x:60,y:380000},{x:62,y:360000},{x:65,y:340000},{x:65,y:320000},
-    {x:68,y:310000},{x:70,y:300000},{x:70,y:295000},{x:72,y:290000},{x:75,y:285000},
-    {x:75,y:280000},{x:78,y:275000},{x:80,y:270000},{x:80,y:265000},{x:82,y:260000},
-    {x:85,y:255000},{x:85,y:250000},{x:88,y:248000},{x:90,y:245000},{x:90,y:240000},
-    {x:92,y:238000},{x:95,y:230000},{x:95,y:225000},{x:98,y:220000},{x:100,y:215000},
-    {x:100,y:210000},{x:105,y:200000},{x:108,y:195000},{x:110,y:190000},{x:112,y:185000},
-    {x:115,y:180000},{x:118,y:175000},{x:120,y:170000},{x:120,y:160000},{x:125,y:155000},
-    {x:130,y:140000},{x:135,y:130000},{x:140,y:120000},{x:145,y:110000},{x:150,y:105000},
-    {x:160,y:100000},{x:170,y:95000},{x:180,y:90000},{x:200,y:85000},{x:240,y:95000},
-    {x:425,y:25000},{x:645,y:38000}
+    {x:16,y:745000},{x:17,y:966849},{x:18,y:832000},{x:19,y:908951},{x:20,y:585000},
+    {x:25,y:636526},{x:29,y:641337},{x:29,y:546044},{x:32,y:451265},{x:34,y:267988},
+    {x:42,y:390000},{x:42,y:319779},{x:43,y:302574},{x:44,y:921785},{x:45,y:450000},
+    {x:48,y:334604},{x:49,y:257639},{x:50,y:240000},{x:52,y:485000},{x:53,y:215492},
+    {x:54,y:300000},{x:54,y:259031},{x:54,y:87882},{x:55,y:298000},{x:55,y:235000},
+    {x:56,y:265522},{x:56,y:193439},{x:58,y:315000},{x:60,y:250000},{x:64,y:356894},
+    {x:64,y:279000},{x:65,y:176900},{x:68,y:419972},{x:68,y:202200},{x:71,y:264328},
+    {x:72,y:385000},{x:74,y:383392},{x:75,y:347263},{x:75,y:268216},{x:75,y:225000},
+    {x:76,y:520000},{x:76,y:164250},{x:77,y:269777},{x:77,y:240000},{x:78,y:233039},
+    {x:78,y:113609},{x:79,y:146319},{x:82,y:221520},{x:83,y:210000},{x:84,y:185222},
+    {x:85,y:185000},{x:85,y:255000},{x:85,y:123854},{x:87,y:236124},{x:89,y:264000},
+    {x:89,y:252326},{x:89,y:196231},{x:91,y:177000},{x:92,y:189000},{x:93,y:221671},
+    {x:94,y:255000},{x:95,y:247232},{x:95,y:175000},{x:95,y:175623},{x:96,y:296324},
+    {x:97,y:175648},{x:98,y:389250},{x:99,y:210000},{x:99,y:242632},{x:102,y:198564},
+    {x:104,y:110000},{x:105,y:193000},{x:105,y:176327},{x:105,y:143698},{x:106,y:285714},
+    {x:108,y:134741},{x:109,y:154575},{x:111,y:110231},{x:115,y:285000},{x:116,y:209788},
+    {x:120,y:109866},{x:121,y:197000},{x:123,y:184000},{x:124,y:124321},{x:124,y:89986},
+    {x:125,y:111200},{x:126,y:112453},{x:133,y:218586},{x:134,y:203990},{x:135,y:174183},
+    {x:135,y:142000},{x:135,y:120000},{x:139,y:160528},{x:155,y:210000},{x:163,y:110000},
+    {x:195,y:101145},{x:195,y:54215},{x:240,y:91667},{x:425,y:26000},{x:650,y:41650}
   ];
 
   new Chart(document.getElementById('scatterChart'), {
@@ -478,7 +476,7 @@
           title: { display: true, text: 'Meals Served', color: BROWN, font: { size: 11, weight: '500' } },
           grid: { color: 'rgba(61,43,31,0.06)' },
           border: { color: 'rgba(61,43,31,0.15)' },
-          ticks: { color: WARM, font: { size: 10 }, callback: v => (v/1000000).toFixed(1)+'M' }
+          ticks: { color: WARM, font: { size: 10 }, callback: v => (v/1000).toFixed(0)+'K' }
         }
       }
     }
@@ -488,15 +486,14 @@
   new Chart(document.getElementById('ratingChart'), {
     type: 'bar',
     data: {
-      labels: ['3.0 ★', '3.5 ★', '4.0 ★', '4.5 ★', '5.0 ★'],
+      labels: ['3.0 ★', '3.5 ★', '4.0 ★', '4.5 ★'],
       datasets: [{
         label: 'Median Avg Check ($)',
-        data: [87, 78, 92, 93, 155],
+        data: [50, 77, 92, 93],
         backgroundColor: [
           'rgba(200,135,26,0.4)',
-          'rgba(200,135,26,0.5)',
-          'rgba(200,135,26,0.65)',
-          'rgba(200,135,26,0.8)',
+          'rgba(200,135,26,0.55)',
+          'rgba(200,135,26,0.75)',
           '#c8871a'
         ],
         borderRadius: 6,
@@ -534,19 +531,19 @@
   }, { threshold: 0.12 });
   revealEls.forEach(el => io.observe(el));
 
-  // ── BAR FILL ANIMATIONS ──
-  const bars = document.querySelectorAll('.bar-fill');
-  const barIO = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        const target = e.target.style.width;
-        e.target.style.width = '0';
-        setTimeout(() => { e.target.style.width = target; }, 100);
-        barIO.unobserve(e.target);
-      }
+  // ── NAV TOGGLE ──
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  navToggle.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', String(open));
+  });
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
     });
-  }, { threshold: 0.5 });
-  bars.forEach(b => barIO.observe(b));
+  });
 </script>
 </body>
 </html>

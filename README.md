@@ -1,7 +1,7 @@
 # Restaurant Industry Analytics — DSC 10 Midterm Project
 
 ## Introduction
-The restaurant industry is one of the most competitive and dynamic sectors in the American economy. From billion-dollar fast food empires to beloved neighborhood independents, the factors that drive success — sales growth, location, and customer satisfaction — vary widely across different types of restaurants. To better understand these dynamics, this project investigates three datasets sourced from [Restaurant Business Online](https://www.restaurantbusinessonline.com) (RB), a leading media brand providing business intelligence for the commercial restaurant industry. The data was collected in 2022 and reflects fiscal year 2021 sales figures.
+The restaurant industry is one of the most competitive and dynamic sectors in the American economy. From billion-dollar fast food empires to beloved neighborhood independents, the factors that drive success — sales growth, location, and customer satisfaction — vary widely across different types of restaurants. To better understand these dynamics, this project investigates three datasets sourced from [Restaurant Business Online](https://www.restaurantbusinessonline.com) (RB), a leading media brand providing business intelligence for the commercial restaurant industry. The data was collected in 2022. The Top 250 dataset reflects fiscal year 2020 sales; the Future 50 and Independents 100 reflect fiscal year 2021.
 
 #### Research Questions
 - Which restaurant segment categories are growing the fastest, and which represent the best investment opportunities?
@@ -66,7 +66,7 @@ Yelp ratings collected in January 2023 for the 100 restaurants in the Independen
 |----------------|-----------------------------------------------------------------------------|
 | `'Restaurant'` | Name of the restaurant [object]                                            |
 | `'City'`       | City where the restaurant is located [object]                              |
-| `'Rating'`     | Yelp star rating (3.0 – 5.0, in 0.5 increments) [float]                   |
+| `'Rating'`     | Yelp star rating (3.0 – 4.5, in 0.5 increments) [float]                   |
 
 <p></p>
 
@@ -110,10 +110,10 @@ After filtering to only segment categories with average sales over $1 billion, Q
 | Quick Service & Mexican       | 4178.00            |
 | Quick Service & Coffee Cafe   | 3243.44            |
 
-The average sales gap between Quick Service and non-Quick Service chains was over **$2,100M**.
+The average sales gap between Quick Service and non-Quick Service chains was over **$1,700M**.
 
 **Growth Category Distribution**
-Only **~12%** of the Top 250 chains achieved a Growth Category of 5 (rapid increase ≥10% YOY), led by chicken and delivery-friendly concepts. Growth Category 1 (rapid decline) was the least common, suggesting most major chains held relatively steady despite the pandemic year.
+Only **~9%** of the Top 250 chains achieved a Growth Category of 5 (rapid increase ≥10% YOY), led by chicken and delivery-friendly concepts. Reflecting COVID-19's impact, Growth Category 1 (rapid decline) was the most common — capturing **~60%** of chains — while Growth Category 3 (Stagnant) was the rarest at ~6%.
 
 **Best Segments to Invest In**
 Ranking all 20 segment categories by mean growth category score revealed three clear frontrunners for capital allocation:
@@ -130,8 +130,6 @@ This section uses the `Future50` and `Independents100` datasets to identify "hot
 
 #### Data Cleaning
 The `Future50` dataset's `Location` column contained city and state together (e.g., `"New York, NY"`). A custom function `split_state_city` was applied to extract only the city name, creating a new `City` column.
-
-Restaurant names in `independents` sometimes included location information in parentheses (e.g., `"Maple & Ash (Chicago)"`). A `remove_location` function was written to strip these suffixes before merging with Yelp data.
 
 #### Defining "Food Hotness"
 A city's **food hotness** score was defined as the total number of its restaurants appearing on both the Independents 100 and Future 50 lists combined. A **hot food city** must appear on both lists.
@@ -177,17 +175,17 @@ Before merging, restaurant names with location suffixes in parentheses were clea
 #### Key Findings
 
 **Ratings Distribution**
-The distribution of Yelp ratings across the Independents 100 was right-skewed toward the higher end, with most restaurants clustered between 4.0 and 4.5 stars. Only 5 restaurants received the minimum rating of 3.0 stars, and these still averaged **$87 per check** — demonstrating that high sales do not guarantee high customer satisfaction.
+The distribution of Yelp ratings across the Independents 100 was left-skewed, with most restaurants clustered between 4.0 and 4.5 stars. Only 5 restaurants received the minimum rating of 3.0 stars, and these had a median average check of **$50** — demonstrating that high sales do not guarantee high customer satisfaction.
 
 **Price Correlates with Rating**
 A bar chart of median average check by Yelp rating confirmed a clear positive trend:
 
 | Yelp Rating | Median Average Check |
 |-------------|----------------------|
-| 3.0         | ~$50                 |
-| 3.5         | ~$78                 |
-| 4.0         | ~$92                 |
-| 4.5         | ~$93                 |
+| 3.0         | $50                  |
+| 3.5         | $77                  |
+| 4.0         | $92                  |
+| 4.5         | $93                  |
 
 **State-Level Quality**
 Grouping by state and computing the proportion of restaurants with at least 4 stars revealed significant geographic variation in perceived dining quality — pointing to regional differences in diner expectations and culinary culture independent of raw sales figures.
