@@ -530,6 +530,10 @@ section {
   margin-bottom: 1rem;
   font-size: 1.3rem;
 }
+.half-star {
+  display: inline-block;
+  clip-path: inset(0 50% 0 0);
+}
 .star-card .price {
   font-family: "Playfair Display", serif;
   font-size: 1.8rem;
