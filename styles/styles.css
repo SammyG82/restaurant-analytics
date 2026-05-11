@@ -1,5 +1,6 @@
 :root {
   --cream: #f5f0e8;
+  --off-white: #fff9f2;
   --dark: #1a1410;
   --brown: #3d2b1f;
   --amber: #c8871a;
@@ -57,6 +58,17 @@ body {
 main:focus {
   outline: none;
 }
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 
 /* ── NAV ── */
 nav {
@@ -68,7 +80,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.2rem 4rem;
+  padding: 1rem 1.5rem;
   background: rgba(245, 240, 232, 0.92);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(61, 43, 31, 0.12);
@@ -81,9 +93,29 @@ nav {
   letter-spacing: 0.02em;
 }
 .nav-links {
-  display: flex;
-  gap: 2rem;
+  display: none;
+  flex-direction: column;
   list-style: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: rgba(245, 240, 232, 0.97);
+  backdrop-filter: blur(10px);
+  padding: 0.5rem 1.5rem 1rem;
+  border-bottom: 1px solid rgba(61, 43, 31, 0.12);
+  gap: 0;
+}
+.nav-links.open {
+  display: flex;
+}
+.nav-links.open li a {
+  display: block;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid rgba(61, 43, 31, 0.06);
+}
+.nav-links.open li:last-child a {
+  border-bottom: none;
 }
 .nav-links a {
   text-decoration: none;
@@ -103,7 +135,7 @@ nav {
   border-radius: 2px;
 }
 .nav-toggle {
-  display: none;
+  display: flex;
   background: none;
   border: none;
   cursor: pointer;
@@ -132,9 +164,9 @@ nav {
   min-height: 100vh;
   min-height: 100dvh;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   align-items: center;
-  padding: 6rem 4rem 3rem;
+  padding: 7rem 1.5rem 4rem;
   position: relative;
   overflow: hidden;
 }
@@ -144,6 +176,7 @@ nav {
   justify-content: center;
 }
 .hero-geo {
+  display: none;
   position: relative;
   height: 100%;
   min-height: 400px;
@@ -227,6 +260,7 @@ nav {
   letter-spacing: 0.1em;
 }
 .hero-divider {
+  display: none;
   width: 1px;
   align-self: stretch;
   background: rgba(61, 43, 31, 0.15);
@@ -234,7 +268,8 @@ nav {
 
 /* ── SECTION SHELL ── */
 section {
-  padding: 6rem 4rem;
+  padding: 4rem 1.5rem;
+  scroll-margin-top: 80px;
 }
 .section-label {
   font-size: 0.7rem;
@@ -278,7 +313,7 @@ section {
 
 .datasets-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   gap: 1.5rem;
   margin-top: 3.5rem;
 }
@@ -329,7 +364,7 @@ section {
 /* ── FINDINGS SECTION ── */
 .findings-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 2rem;
   margin-top: 3.5rem;
 }
@@ -398,11 +433,11 @@ section {
 
 /* ── CITIES SECTION ── */
 #cities {
-  background: #fff9f2;
+  background: var(--off-white);
 }
 .cities-layout {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 3rem;
   margin-top: 3.5rem;
   align-items: start;
@@ -505,7 +540,7 @@ section {
 }
 .stars-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   gap: 1.5rem;
   margin-top: 3.5rem;
 }
@@ -529,6 +564,7 @@ section {
   gap: 3px;
   margin-bottom: 1rem;
   font-size: 1.3rem;
+  color: var(--amber);
 }
 .half-star {
   display: inline-block;
@@ -568,7 +604,7 @@ section {
 
 .skills-columns {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   gap: 1.5rem;
   margin-top: 3rem;
 }
@@ -609,13 +645,13 @@ section {
 }
 .chart-pair {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 1.5rem;
   margin-top: 2rem;
 }
 .stars-pair {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 2rem;
   margin-top: 2rem;
   align-items: stretch;
@@ -640,11 +676,6 @@ section {
   box-shadow: 0 12px 40px rgba(61, 43, 31, 0.1);
   transform: translateY(-2px);
 }
-.chart-wrap img {
-  width: 100%;
-  border-radius: 8px;
-  display: block;
-}
 .chart-caption {
   margin-top: 0.8rem;
   font-size: 0.78rem;
@@ -663,7 +694,7 @@ section {
 
 /* ── FOOTER ── */
 footer {
-  padding: 3rem 4rem;
+  padding: 2rem 1.5rem;
   background: var(--brown);
   display: flex;
   justify-content: space-between;
@@ -731,61 +762,59 @@ footer p {
   transition-delay: 0.4s;
 }
 
-@media (max-width: 900px) {
+@media (min-width: 900px) {
   nav {
-    padding: 1rem 1.5rem;
+    padding: 1.2rem 4rem;
   }
   .nav-toggle {
-    display: flex;
+    display: none;
   }
   .nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: rgba(245, 240, 232, 0.97);
-    backdrop-filter: blur(10px);
-    padding: 0.5rem 1.5rem 1rem;
-    border-bottom: 1px solid rgba(61, 43, 31, 0.12);
-    gap: 0;
-  }
-  .nav-links.open {
     display: flex;
-  }
-  .nav-links.open li a {
-    display: block;
-    padding: 0.8rem 0;
-    border-bottom: 1px solid rgba(61, 43, 31, 0.06);
-  }
-  .nav-links.open li:last-child a {
+    flex-direction: row;
+    position: static;
+    background: none;
+    backdrop-filter: none;
+    padding: 0;
     border-bottom: none;
+    gap: 2rem;
   }
   section {
-    padding: 4rem 1.5rem;
+    padding: 6rem 4rem;
   }
   footer {
-    padding: 2rem 1.5rem;
+    padding: 3rem 4rem;
   }
   .hero {
-    grid-template-columns: 1fr;
-    padding: 7rem 1.5rem 4rem;
+    grid-template-columns: 1fr 1fr;
+    padding: 6rem 4rem 3rem;
   }
   .hero-geo {
-    display: none;
+    display: block;
   }
   .hero-divider {
-    display: none;
+    display: block;
   }
-  .datasets-grid,
-  .findings-grid,
-  .cities-layout,
-  .stars-grid,
-  .skills-columns,
-  .chart-pair,
+  .datasets-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .findings-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .cities-layout {
+    grid-template-columns: 1fr 1fr;
+  }
+  .stars-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .skills-columns {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .chart-pair {
+    grid-template-columns: 1fr 1fr;
+  }
   .stars-pair {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 }
 

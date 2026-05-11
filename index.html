@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Restaurant Industry Analytics — DSC 10 Project</title>
+<meta name="description" content="A data-driven investigation into the U.S. restaurant landscape — growth patterns, hot food cities, and the relationship between price and Yelp ratings.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./styles/styles.css">
 </head>
@@ -27,7 +30,7 @@
 
 <main id="main-content" tabindex="-1">
 <!-- HERO -->
-<section class="hero" id="home">
+<section class="hero">
   <div class="hero-content">
     <span class="hero-tag">DSC 10 · Midterm Project · UCSD</span>
     <h1>Restaurant<br><em>Industry</em><br>Analytics</h1>
@@ -96,25 +99,21 @@
   </div>
   <div class="datasets-grid">
     <div class="dataset-card reveal reveal-delay-1">
-      <div class="icon" aria-hidden="true">⛓️</div>
       <h3>Top 250 Chains</h3>
       <p>The 250 largest restaurant chains in the US by 2020 annual sales, ranging from McDonald's at $40.5 billion down to Sizzler. Includes year-over-year growth rates and segment categories.</p>
       <span class="badge">250 chains · Sales in $M</span>
     </div>
     <div class="dataset-card reveal reveal-delay-2">
-      <div class="icon" aria-hidden="true">🚀</div>
       <h3>Future 50</h3>
       <p>The 50 fastest-growing mid-sized restaurant chains with annual sales between $25–50M. These are the household names of tomorrow, not yet in the same league as McDonald's.</p>
       <span class="badge">50 chains · $25–50M range</span>
     </div>
     <div class="dataset-card reveal reveal-delay-3">
-      <div class="icon" aria-hidden="true">🍽️</div>
       <h3>Independents 100</h3>
       <p>The 100 highest-grossing independent restaurants (fewer than 5 locations) in the US. These are destination dining experiences — measured in dollars, not millions.</p>
       <span class="badge">100 restaurants · Sales in $</span>
     </div>
     <div class="dataset-card reveal reveal-delay-4">
-      <div class="icon" aria-hidden="true">⭐</div>
       <h3>Yelp Ratings</h3>
       <p>Yelp ratings collected in January 2023 for the 100 restaurants in the Independents 100. Used to explore the relationship between price, sales volume, and customer satisfaction.</p>
       <span class="badge">100 restaurants · 3.0–4.5 stars</span>
@@ -191,6 +190,7 @@
       <h3 class="leaderboard-title">Hot Food Cities Leaderboard</h3>
       <p class="leaderboard-desc">"Food hotness" = sum of appearances on Independents 100 + Future 50. Cities must appear on both lists.</p>
       <table class="city-table">
+        <caption class="sr-only">Hot Food Cities Leaderboard</caption>
         <thead>
           <tr>
             <th scope="col">City</th>
@@ -200,13 +200,13 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td><span class="heat-dot"></span>Chicago</td><td>16</td><td>1</td><td><span class="hot-badge">🔥 17</span></td></tr>
-          <tr><td><span class="heat-dot"></span>New York</td><td>10</td><td>2</td><td><span class="hot-badge">🔥 12</span></td></tr>
-          <tr><td><span class="heat-dot"></span>Orlando</td><td>3</td><td>2</td><td><span class="hot-badge">🔥 5</span></td></tr>
-          <tr><td><span class="heat-dot"></span>Atlanta</td><td>2</td><td>2</td><td><span class="hot-badge">🔥 4</span></td></tr>
-          <tr><td><span class="heat-dot"></span>Houston</td><td>2</td><td>1</td><td><span class="hot-badge">🔥 3</span></td></tr>
-          <tr><td><span class="heat-dot"></span>Austin</td><td>2</td><td>1</td><td><span class="hot-badge">🔥 3</span></td></tr>
-          <tr><td><span class="heat-dot"></span>West Hollywood</td><td>1</td><td>1</td><td><span class="hot-badge">🔥 2</span></td></tr>
+          <tr><td><span class="heat-dot"></span>Chicago</td><td>16</td><td>1</td><td><span class="hot-badge">17</span></td></tr>
+          <tr><td><span class="heat-dot"></span>New York</td><td>10</td><td>2</td><td><span class="hot-badge">12</span></td></tr>
+          <tr><td><span class="heat-dot"></span>Orlando</td><td>3</td><td>2</td><td><span class="hot-badge">5</span></td></tr>
+          <tr><td><span class="heat-dot"></span>Atlanta</td><td>2</td><td>2</td><td><span class="hot-badge">4</span></td></tr>
+          <tr><td><span class="heat-dot"></span>Houston</td><td>2</td><td>1</td><td><span class="hot-badge">3</span></td></tr>
+          <tr><td><span class="heat-dot"></span>Austin</td><td>2</td><td>1</td><td><span class="hot-badge">3</span></td></tr>
+          <tr><td><span class="heat-dot"></span>West Hollywood</td><td>1</td><td>1</td><td><span class="hot-badge">2</span></td></tr>
         </tbody>
       </table>
     </div>
@@ -254,19 +254,19 @@
 
   <div class="stars-grid">
     <div class="star-card reveal reveal-delay-1">
-      <div class="star-rating" aria-hidden="true">⭐⭐⭐⭐<span class="half-star">⭐</span></div>
+      <div class="star-rating" aria-hidden="true">★★★★<span class="half-star">★</span></div>
       <div class="price">$93</div>
       <div class="price-label">Median avg check · 4.5-star restaurants</div>
       <p>The highest-rated independent restaurants in the dataset hold a 4.5-star Yelp rating — commanding a strong price premium with median checks near $100 per person.</p>
     </div>
     <div class="star-card reveal reveal-delay-2">
-      <div class="star-rating" aria-hidden="true">⭐⭐⭐⭐</div>
+      <div class="star-rating" aria-hidden="true">★★★★</div>
       <div class="price">$92</div>
       <div class="price-label">Median avg check · 4.0-star restaurants</div>
       <p>Four-star restaurants represent premium dining at a nearly identical price point to 4.5-star restaurants — capturing the sweet spot of quality and value for most fine-dining patrons.</p>
     </div>
     <div class="star-card reveal reveal-delay-3">
-      <div class="star-rating" aria-hidden="true">⭐⭐⭐</div>
+      <div class="star-rating" aria-hidden="true">★★★</div>
       <div class="price">$50</div>
       <div class="price-label">Median avg check · 3.0-star restaurants</div>
       <p>Interestingly, 5 restaurants received the lowest (3.0) Yelp rating despite appearing in the Independents 100 — with a median check of $50. High sales ≠ high satisfaction.</p>
@@ -339,7 +339,37 @@
 <script>
   // ── THEME ──
   const AMBER = '#c8871a', BROWN = '#3d2b1f', SAGE = '#5a7a5e',
-        WARM  = '#8a7d74', CREAM = '#fdf8f0', GOLD = '#e8b84b';
+        WARM  = '#8a7d74', GOLD = '#e8b84b',
+        LIGHT = '#f5f0e8';
+
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => io.observe(el));
+
+  // ── NAV TOGGLE ──
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  navToggle.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', String(open));
+  });
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+      navLinks.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.focus();
+    }
+  });
 
   Chart.defaults.font.family = "'DM Sans', sans-serif";
   Chart.defaults.color = WARM;
@@ -357,7 +387,7 @@
       indexAxis: 'y', responsive: true,
       plugins: {
         legend: { display: false },
-        tooltip: { backgroundColor: BROWN, titleColor: GOLD, bodyColor: '#f5f0e8', padding: 10, callbacks: { label: ctx => ` Score: ${ctx.raw}` } }
+        tooltip: { backgroundColor: BROWN, titleColor: GOLD, bodyColor: LIGHT, padding: 10, callbacks: { label: ctx => ` Score: ${ctx.raw}` } }
       },
       scales: {
         x: { grid: { color: 'rgba(61,43,31,0.06)' }, border: { color: 'rgba(61,43,31,0.15)' }, ticks: { color: WARM, font: { size: 11 } }, min: 0, max: 4 },
@@ -377,12 +407,14 @@
           data: [1, 2, 2, 2, 3, 10, 16],
           backgroundColor: AMBER,
           borderRadius: 3,
+          borderSkipped: false,
         },
         {
           label: 'Future 50',
           data: [1, 1, 2, 1, 2, 2, 1],
           backgroundColor: SAGE,
           borderRadius: 3,
+          borderSkipped: false,
         }
       ]
     },
@@ -397,7 +429,7 @@
         tooltip: {
           backgroundColor: BROWN,
           titleColor: GOLD,
-          bodyColor: '#f5f0e8',
+          bodyColor: LIGHT,
           padding: 10,
         }
       },
@@ -458,9 +490,10 @@
         tooltip: {
           backgroundColor: BROWN,
           titleColor: GOLD,
-          bodyColor: '#f5f0e8',
+          bodyColor: LIGHT,
           padding: 10,
           callbacks: {
+            title: () => '',
             label: ctx => ` Avg Check: $${ctx.raw.x} · Meals: ${(ctx.raw.y/1000).toFixed(0)}K`
           }
         }
@@ -476,7 +509,7 @@
           title: { display: true, text: 'Meals Served', color: BROWN, font: { size: 11, weight: '500' } },
           grid: { color: 'rgba(61,43,31,0.06)' },
           border: { color: 'rgba(61,43,31,0.15)' },
-          ticks: { color: WARM, font: { size: 10 }, callback: v => (v/1000).toFixed(0)+'K' }
+          ticks: { color: WARM, font: { size: 10 }, callback: v => v >= 1000000 ? '1M' : (v/1000).toFixed(0)+'K' }
         }
       }
     }
@@ -494,7 +527,7 @@
           'rgba(200,135,26,0.4)',
           'rgba(200,135,26,0.55)',
           'rgba(200,135,26,0.75)',
-          '#c8871a'
+          AMBER
         ],
         borderRadius: 6,
         borderSkipped: false,
@@ -505,7 +538,7 @@
       plugins: {
         legend: { display: false },
         tooltip: {
-          backgroundColor: BROWN, titleColor: GOLD, bodyColor: '#f5f0e8', padding: 10,
+          backgroundColor: BROWN, titleColor: GOLD, bodyColor: LIGHT, padding: 10,
           callbacks: { label: ctx => ` Median check: $${ctx.raw}` }
         }
       },
@@ -522,27 +555,6 @@
         }
       }
     }
-  });
-  const revealEls = document.querySelectorAll('.reveal');
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
-    });
-  }, { threshold: 0.12 });
-  revealEls.forEach(el => io.observe(el));
-
-  // ── NAV TOGGLE ──
-  const navToggle = document.querySelector('.nav-toggle');
-  const navLinks = document.querySelector('.nav-links');
-  navToggle.addEventListener('click', () => {
-    const open = navLinks.classList.toggle('open');
-    navToggle.setAttribute('aria-expanded', String(open));
-  });
-  navLinks.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => {
-      navLinks.classList.remove('open');
-      navToggle.setAttribute('aria-expanded', 'false');
-    });
   });
 </script>
 </body>

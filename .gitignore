@@ -1,2 +1,5 @@
 # Local data folder + model
 data/
+
+# macOS metadata
+.DS_Store
